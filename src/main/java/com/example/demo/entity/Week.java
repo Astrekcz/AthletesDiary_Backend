@@ -13,12 +13,16 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class WeekManagement {
+public class Week {
     @Id
     private Long WMid;
 
     private Integer weekNumber;
     private LocalDate date;
+
+    private String weekName;
+
+
 
 
 }

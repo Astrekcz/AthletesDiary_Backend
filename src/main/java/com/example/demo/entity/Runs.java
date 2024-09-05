@@ -11,6 +11,7 @@ import lombok.*;
 @Builder
 public class Runs {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long runsId;
 
     @Column(columnDefinition = "TEXT")
@@ -19,6 +20,9 @@ public class Runs {
     private Long duration;
 
     private Long pause;
+
+    @Enumerated(EnumType.STRING)
+    private RunsType runsType;
 
     @ManyToOne
     @JoinColumn(name = "training_id")

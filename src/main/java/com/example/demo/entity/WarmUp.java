@@ -12,6 +12,8 @@ import lombok.*;
 public class WarmUp {
 
     @Id
+    @GeneratedValue (strategy = GenerationType.IDENTITY)
+
     private Long warmUpID;
 
     private String trot;

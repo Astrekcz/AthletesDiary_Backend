@@ -3,6 +3,7 @@ package com.example.demo.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.time.Duration;
 import java.util.List;
 
 @Entity
@@ -18,9 +19,9 @@ public class Runs {
     @OneToMany(mappedBy = "runs", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Distance> distances;
 
-    private Long duration;
+    private Duration durationOfRun;
 
-    private Long pause;
+    private Duration pause;
 
     private Integer numberOfRuns;
 

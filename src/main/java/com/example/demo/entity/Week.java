@@ -1,9 +1,6 @@
 package com.example.demo.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDate;
@@ -21,11 +18,12 @@ public class Week {
     private Long WMid;
 
     private Integer weekNumber;
-    private LocalDate date;
 
-    private String weekName;
+    private LocalDate startOfWeek;
 
+    private LocalDate endOfWeek;
 
-
+    @Enumerated(EnumType.STRING)
+    private Days days;
 
 }

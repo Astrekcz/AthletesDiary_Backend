@@ -26,10 +26,16 @@ public class Training {
     @OneToMany(mappedBy = "training", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<WarmUp> warmUpList;
 
+    @ManyToOne
+    @JoinColumn(name = "userId")
+    private User user;
+
     private String nameOfTraining;
 
     @Column(columnDefinition = "TEXT")
     private String comment;
+
+    public void adjustNumberOf //todo figre this out
 
 
 }

@@ -35,7 +35,6 @@ public class Training {
     @Column(columnDefinition = "TEXT")
     private String comment;
 
-    public void adjustNumberOf //todo figre this out
 
 
 }

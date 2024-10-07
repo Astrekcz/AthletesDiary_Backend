@@ -2,6 +2,7 @@ package com.example.demo.service;
 
 import com.example.demo.Repository.TrainingRepository;
 import com.example.demo.Repository.UserRepository;
+import com.example.demo.entity.Role;
 import com.example.demo.entity.Training;
 import com.example.demo.entity.User;
 import lombok.RequiredArgsConstructor;
@@ -41,11 +42,38 @@ public class UserService {
         User user = userRepository.findById(userId)
                 .orElseThrow(() -> new RuntimeException("user not found"));
 
-        List<Training> list = user.getTrainingList();
+
         userRepository.delete(user);
-        for (Training training : list) {
-            trainingService.updateOverallRatingAndAdjustNumberOfReviews(review.getBook()); //todo figure this out
+
+    }
+    @PreAuthorize("hasRole('USER')")
+    public void deleteUserAsTheUser(){
+        User currentUser = getAuthenticatedUser();
+
+        userRepository.delete(currentUser);
+
+    }
+    @PreAuthorize("hasRole('COACH')")
+    public List<User> getPupils(){
+        return userRepository.findByRole(Role.USER);
+    }
+
+    @PreAuthorize("hasRole('ADMIN')")
+    public List<User> getUsers() {
+        return userRepository.findAll();
+    }
+
+    public User getAuthenticatedUser() {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        if (authentication == null || !(authentication.getPrincipal() instanceof UserDetails)) {
+            throw new RuntimeException("No authentication or principal found");
         }
+
+        UserDetails userDetails = (UserDetails) authentication.getPrincipal();
+        String email = userDetails.getUsername();
+
+        return userRepository.findByEmail(email)
+                .orElseThrow(() -> new RuntimeException("Authenticated user not found"));
     }
 
 }

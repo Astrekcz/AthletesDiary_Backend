@@ -1,6 +1,6 @@
 package com.example.demo.service;
 
-import com.example.demo.Repository.UserRepository;
+import com.example.demo.repository.UserRepository;
 import com.example.demo.dto.AuthenticationRequestDto;
 import com.example.demo.dto.AuthenticationResponseDto;
 import com.example.demo.dto.UserRegisterDto;

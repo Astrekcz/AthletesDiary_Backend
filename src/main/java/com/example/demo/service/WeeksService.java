@@ -1,7 +1,6 @@
 package com.example.demo.service;
 
-import com.example.demo.Repository.WeekRepository;
-import com.example.demo.entity.Week;
+import com.example.demo.repository.WeekRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

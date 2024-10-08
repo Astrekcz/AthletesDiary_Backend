@@ -20,12 +20,6 @@ public class Training {
 
     private LocalDate dateOfTrain;
 
-    @OneToMany(mappedBy = "training", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<Runs> runs;
-
-    @OneToMany(mappedBy = "training", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<WarmUp> warmUpList;
-
     @ManyToOne
     @JoinColumn(name = "userId")
     private User user;
@@ -35,6 +29,10 @@ public class Training {
     @Column(columnDefinition = "TEXT")
     private String comment;
 
+    @OneToMany(mappedBy = "training", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<Runs> runs;
 
+    @OneToMany(mappedBy = "training", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<WarmUp> warmUpList;
 
 }

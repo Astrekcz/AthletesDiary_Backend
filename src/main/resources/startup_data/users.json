@@ -1,0 +1,104 @@
+[
+  {
+    "userId": 1,
+    "firstname": "John",
+    "lastname": "Doe",
+    "email": "john.doe@example.com",
+    "password": "hashedpassword1",
+    "role": "USER",
+    "trainingList": [
+      {
+        "trainingId": 101
+      },
+      {
+        "trainingId": 102
+      }
+    ]
+  },
+  {
+    "userId": 2,
+    "firstname": "Jane",
+    "lastname": "Smith",
+    "email": "jane.smith@example.com",
+    "password": "hashedpassword2",
+    "role": "ADMIN",
+    "trainingList": [
+      {
+        "trainingId": 103
+      }
+    ]
+  },
+  {
+    "userId": 3,
+    "firstname": "Alice",
+    "lastname": "Johnson",
+    "email": "alice.johnson1@example.com",
+    "password": "hashedpassword1",
+    "role": "COACH",
+    "trainingList": []
+  },
+  {
+    "userId": 4,
+    "firstname": "Bob",
+    "lastname": "Smith",
+    "email": "bob.smith@example.com",
+    "password": "hashedpassword2",
+    "role": "USER",
+    "trainingList": []
+  },
+  {
+    "userId": 5,
+    "firstname": "Charlie",
+    "lastname": "Brown",
+    "email": "charlie.brown@example.com",
+    "password": "hashedpassword3",
+    "role": "USER",
+    "trainingList": []
+  },
+  {
+    "userId": 6,
+    "firstname": "David",
+    "lastname": "Miller",
+    "email": "david.miller@example.com",
+    "password": "hashedpassword4",
+    "role": "USER",
+    "trainingList": []
+  },
+  {
+    "userId": 7,
+    "firstname": "Eva",
+    "lastname": "Williams",
+    "email": "eva.williams@example.com",
+    "password": "hashedpassword5",
+    "role": "USER",
+    "trainingList": []
+  },
+  {
+    "userId": 8,
+    "firstname": "Frank",
+    "lastname": "Taylor",
+    "email": "frank.taylor@example.com",
+    "password": "hashedpassword6",
+    "role": "USER",
+    "trainingList": []
+  },
+  {
+    "userId": 9,
+    "firstname": "Grace",
+    "lastname": "Davis",
+    "email": "grace.davis@example.com",
+    "password": "hashedpassword7",
+    "role": "USER",
+    "trainingList": []
+  },
+  {
+    "userId": 10,
+    "firstname": "Hannah",
+    "lastname": "Wilson",
+    "email": "hannah.wilson@example.com",
+    "password": "hashedpassword8",
+    "role": "USER",
+    "trainingList": []
+  }
+
+]

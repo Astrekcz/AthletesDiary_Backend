@@ -1,7 +1,7 @@
 package com.example.demo.service;
 
 
-import com.example.demo.Repository.*;
+import com.example.demo.repository.*;
 import com.example.demo.entity.*;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -19,7 +19,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.time.Duration;
 import java.time.LocalDate;
-import java.util.List;
 
 @Service
 @RequiredArgsConstructor

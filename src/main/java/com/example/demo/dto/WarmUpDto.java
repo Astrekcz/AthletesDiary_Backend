@@ -1,17 +1,19 @@
 package com.example.demo.dto;
 
+
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
 @Builder
-@Setter
 @Getter
-public class Distance {
+@Setter
+public class WarmUpDto {
 
-    private Long distance_id;
+    private Long warmUpID;
 
-    private String distance;
+    private String trot;
 
+    private String exercises;
 
 }

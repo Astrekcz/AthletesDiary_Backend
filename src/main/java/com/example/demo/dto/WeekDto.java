@@ -1,8 +1,6 @@
 package com.example.demo.dto;
 
 import com.example.demo.entity.Days;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
@@ -14,6 +12,8 @@ import java.time.LocalDate;
 @Setter
 @Getter
 public class WeekDto {
+    private Long weekId;
+
     @NotNull
     private Integer weekNumber;
     @NotNull

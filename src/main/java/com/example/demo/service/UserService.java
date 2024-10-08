@@ -1,9 +1,8 @@
 package com.example.demo.service;
 
-import com.example.demo.Repository.TrainingRepository;
-import com.example.demo.Repository.UserRepository;
+import com.example.demo.repository.TrainingRepository;
+import com.example.demo.repository.UserRepository;
 import com.example.demo.entity.Role;
-import com.example.demo.entity.Training;
 import com.example.demo.entity.User;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

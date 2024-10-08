@@ -1,6 +1,6 @@
 package com.example.demo.service;
 
-import com.example.demo.Repository.UserRepository;
+import com.example.demo.repository.UserRepository;
 import com.example.demo.entity.User;
 import com.example.demo.security.CustomUserDetails;
 import lombok.RequiredArgsConstructor;

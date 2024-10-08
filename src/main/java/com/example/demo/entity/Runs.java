@@ -29,5 +29,5 @@ public class Runs {
     @JoinColumn(name = "training_id")
     private Training training;
 
-    private Integer repetition = 1;  // of runs (200m 200m 200m) * 3
+    private Integer repetition;  // of runs (200m 200m 200m) * 3
 }

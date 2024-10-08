@@ -26,4 +26,6 @@ public class Week {
     @Enumerated(EnumType.STRING)
     private Days days;
 
+    //TODO vymyslet logiku na přiřazení trénink(jednotlivých dnů) do week class
+
 }

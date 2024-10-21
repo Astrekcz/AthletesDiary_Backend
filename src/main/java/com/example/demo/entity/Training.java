@@ -29,10 +29,10 @@ public class Training {
     @Column(columnDefinition = "TEXT")
     private String comment;
 
-    @OneToMany(mappedBy = "training", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<Runs> runs;
+    @OneToOne(mappedBy = "training", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private Runs runs;
 
-    @OneToMany(mappedBy = "training", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<WarmUp> warmUpList;
+    @OneToOne(mappedBy = "training", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private WarmUp warmUp;
 
 }

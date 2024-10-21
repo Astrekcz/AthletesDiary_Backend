@@ -19,8 +19,8 @@ public class TrainingMapper {
     return trainingDto;
     }
     public TrainingForUser TrainingForUserDto(Training training) {
-        WarmUp warmUp = (WarmUp) training.getWarmUpList();
-        Runs runs = (Runs) training.getRuns();
+        WarmUp warmUp = training.getWarmUp();
+        Runs runs = training.getRuns();
 
         TrainingForUser trainingForUser = TrainingForUser.builder()
                 .trainingID(training.getTrainingID())
@@ -45,8 +45,8 @@ public class TrainingMapper {
 
     public TrainingForUser trainingForCoachDto(Training training) {
 
-        WarmUp warmUp = (WarmUp) training.getWarmUpList();
-        Runs runs = (Runs) training.getRuns();
+        WarmUp warmUp = training.getWarmUp();
+        Runs runs = training.getRuns();
 
         TrainingForUser trainingForUser = TrainingForUser.builder()
                 .trainingID(training.getTrainingID())
@@ -70,8 +70,8 @@ public class TrainingMapper {
     }
     public TrainingForUser trainingForAdmin(Training training){
 
-        WarmUp warmUp = (WarmUp) training.getWarmUpList();
-        Runs runs = (Runs) training.getRuns();
+        WarmUp warmUp = training.getWarmUp();
+        Runs runs = training.getRuns();
 
         TrainingForUser trainingForUser = TrainingForUser.builder()
                 .trainingID(training.getTrainingID())

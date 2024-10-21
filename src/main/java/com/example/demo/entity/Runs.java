@@ -25,7 +25,7 @@ public class Runs {
 
     private Integer numberOfRuns;
 
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "training_id")
     private Training training;
 

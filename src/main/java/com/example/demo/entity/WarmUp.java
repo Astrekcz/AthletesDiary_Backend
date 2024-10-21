@@ -21,7 +21,7 @@ public class WarmUp {
     @Column(columnDefinition = "TEXT")
     private String exercises;
 
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "training_id")
     private Training training;
 

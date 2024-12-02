@@ -14,6 +14,7 @@ import java.util.List;
 @Builder
 public class Runs {
     @Id
+    @GeneratedValue (strategy = GenerationType.IDENTITY)
     private Long runsId;
 
     @OneToMany(mappedBy = "runs", cascade = CascadeType.ALL, orphanRemoval = true)

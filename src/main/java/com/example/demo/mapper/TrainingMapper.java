@@ -5,6 +5,8 @@ import com.example.demo.dto.TrainingForUser;
 import com.example.demo.entity.*;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 @Component
 public class TrainingMapper {
     public TrainingDto TrainingEntityToDto(Training training) {
@@ -40,9 +42,8 @@ public class TrainingMapper {
                 .build();
 
 
-    return trainingForUser;
+        return trainingForUser;
     }
-
     public TrainingForUser trainingForCoachDto(Training training) {
 
         WarmUp warmUp = training.getWarmUp();
@@ -63,6 +64,7 @@ public class TrainingMapper {
                 .durationOfRun(runs.getDurationOfRun())
                 .pause(runs.getPause())
                 .repetition(runs.getRepetition())
+                .days(training.getDays())
                 .build();
 
         return trainingForUser;
@@ -88,9 +90,13 @@ public class TrainingMapper {
                 .durationOfRun(runs.getDurationOfRun())
                 .pause(runs.getPause())
                 .repetition(runs.getRepetition())
+                .days(training.getDays())
                 .build();
 
         return trainingForUser;
+
+        //budou jenom 1 training mapper ktery bude mapovat jenom zakladni data o treninku.
+        //ostatni tridy warmUp atd se udelali jednotlive mappery
 
     }
 

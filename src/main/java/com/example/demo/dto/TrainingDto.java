@@ -1,6 +1,7 @@
 package com.example.demo.dto;
 
 
+import com.example.demo.entity.Days;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,6 +17,8 @@ public class TrainingDto {
     private Long trainingID;
 
     private LocalDate dateOfTrain;
+
+    private Days days;
 
     private String nameOfTraining;
 

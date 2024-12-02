@@ -1,5 +1,6 @@
 package com.example.demo.dto;
 
+import com.example.demo.entity.Days;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,6 +17,8 @@ public class TrainingForCoachDto {
     private Long warmUpID;
 
     private String trot;
+
+    private Days days;
 
     private String exercises;
 

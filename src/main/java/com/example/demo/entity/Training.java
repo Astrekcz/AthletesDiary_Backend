@@ -24,6 +24,9 @@ public class Training {
     @JoinColumn(name = "userId")
     private User user;
 
+    @Enumerated(EnumType.STRING)
+    private Days days;
+
     private String nameOfTraining;
 
     @Column(columnDefinition = "TEXT")

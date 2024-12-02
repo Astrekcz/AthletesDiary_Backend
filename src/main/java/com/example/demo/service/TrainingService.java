@@ -19,6 +19,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.time.Duration;
 import java.time.LocalDate;
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -90,6 +91,9 @@ public class TrainingService {
         distanceRepository.save(distances);
 
 
+    }
+    public List<Training> getTrainingList(){
+        return trainingRepository.findAll();
     }
 
 

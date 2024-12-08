@@ -20,9 +20,14 @@ public class Runs {
     @OneToMany(mappedBy = "runs", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Distance> distances;
 
-    private Duration durationOfRun;
+    @OneToMany(mappedBy = "runs", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<DurationInput> durations;
 
-    private Duration pause;
+  /*  private Long durationOfRun;
+
+    private String unit;  seconds minutes hours */
+
+    private Long pause;
 
     private Integer numberOfRuns;
 
@@ -31,4 +36,11 @@ public class Runs {
     private Training training;
 
     private Integer repetition;  // of runs (200m 200m 200m) * 3
+
+    //TODO Udělat logiku na durationOfRun sekundy minuty hodiny
+    //TODO pause bude v minutách a sekundách
+
+
 }
+
+

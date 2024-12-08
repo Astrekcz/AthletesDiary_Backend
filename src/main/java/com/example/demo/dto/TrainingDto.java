@@ -27,4 +27,6 @@ public class TrainingDto {
     private String userlastname;
 
     private String userfirstname;
+
+
 }

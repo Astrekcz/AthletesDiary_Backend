@@ -14,9 +14,11 @@ public class RunsDto {
 
     private Long runsId;
 
-    private Duration durationOfRun;
+    private String unit;
 
-    private Duration pause;
+    private Long durationOfRun;
+
+    private Long pause;
 
     private Integer numberOfRuns;
 

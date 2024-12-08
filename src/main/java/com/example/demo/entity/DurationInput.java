@@ -9,17 +9,17 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class Distance {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long distance_id;
+public class DurationInput {
 
-    @Column(columnDefinition = "TEXT")
-    private String distance;
+    @Id
+    @GeneratedValue
+    private Long DurId;
+
+    private Long DurationOfRun;
+
+    private String Unit;
 
     @ManyToOne
     @JoinColumn(name = "runs_id")
     private Runs runs;
-
-
 }

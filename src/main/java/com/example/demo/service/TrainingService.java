@@ -31,19 +31,70 @@ public class TrainingService {
     private final WarmUpRepository warmUpRepository;
     private final DistanceRepository distanceRepository;
     private final RunsRepository runsRepository;
+    private final DurationInputRepository durationInputRepository;
+
+
+
+
+    @PreAuthorize("hasRole('USER')")
+    @Transactional
+    public Duration saveTime(DurationInput durationInput) {
+        return switch (durationInput.getUnit().toLowerCase()){
+            case "seconds" -> Duration.ofSeconds(durationInput.getDurationOfRun());
+            case "minutes" -> Duration.ofMinutes(durationInput.getDurationOfRun());
+            case "hours" -> Duration.ofHours(durationInput.getDurationOfRun());
+            default -> throw new IllegalArgumentException("Invalid unit value");
+        };
+    }
+
+    @PreAuthorize("hasRole('USER')")
+    @Transactional
+    public void ConvertTimeToSeconds(DurationInput durationInput) {
+        if (durationInput.getUnit().equals("minutes")) {
+            durationInput.setDurationOfRun(durationInput.getDurationOfRun()*60);
+        }else if (durationInput.getUnit().equals("hours")) {
+            durationInput.setDurationOfRun(durationInput.getDurationOfRun()*60*60);
+        }else if (durationInput.getUnit().equals("seconds")) {
+            durationInput.setDurationOfRun(durationInput.getDurationOfRun());
+        }else throw new IllegalArgumentException("Invalid unit value");
+    }
+/*
+    @PreAuthorize("hasRole('USER')")
+    @Transactional
+    public Duration saveTimeToSeconds(Runs input){
+        return switch (input.getUnit().toLowerCase()) {
+            case "seconds" -> Duration.ofSeconds(input.getDurationOfRun());
+            case "minutes" -> Duration.ofMinutes(input.getDurationOfRun());
+            case "hours" -> Duration.ofHours(input.getDurationOfRun());
+            default -> throw new IllegalArgumentException("Invalid unit type" + input.getUnit());
+        };
+    }
+
+
+    @PreAuthorize("hasRole('USER')")
+    @Transactional
+    public Duration convertToDuration(Runs input){
+        return switch (input.getUnit().toLowerCase()) {
+            case "seconds" -> Duration.ofSeconds(input.getDurationOfRun());
+            case "minutes" -> Duration.ofMinutes(input.getDurationOfRun());
+            case "hours" -> Duration.ofHours(input.getDurationOfRun());
+            default -> throw new IllegalArgumentException("Invalid unit type" + input.getUnit());
+        };
+    } */
 
     @PreAuthorize("hasRole('USER')")
     @Transactional
     public void saveTraining(String comment, String nameOfTraining,
                               String distance, String exercises,
                               String trot, LocalDate dateOfTrain, Long trainingID,
-                              Duration durationOfRun, Duration pause,
+                               Long pause, String Unit, Long DurationOfRun,
                               Integer repetition, Integer numberOfRuns){
-        if (durationOfRun.isNegative()){
+        if (DurationOfRun < 0 || DurationOfRun == 0){
             throw new IllegalArgumentException("durationOfRun is invalid");
-        }else if (pause.isNegative()){
+        }else if (pause < 0 ){
             throw new IllegalArgumentException("pause is invalid");
         }
+
 
         Training training1 = trainingRepository.findById(trainingID)
                 .orElseThrow(() -> new RuntimeException("training record not found"));
@@ -72,11 +123,18 @@ public class TrainingService {
                 .build();
 
         Runs runs = Runs.builder()
-                .durationOfRun(durationOfRun)
                 .pause(pause)
                 .repetition(repetition)
                 .numberOfRuns(numberOfRuns)
                 .build();
+
+        DurationInput durationInput = DurationInput.builder()
+                .DurationOfRun(DurationOfRun)
+                .Unit(Unit)
+                .build();
+
+
+
 
         //Setting relation between databases
         warmUp.setTraining(training);
@@ -89,6 +147,7 @@ public class TrainingService {
         warmUpRepository.save(warmUp);
         runsRepository.save(runs);
         distanceRepository.save(distances);
+        durationInputRepository.save(durationInput);
 
 
     }

@@ -10,7 +10,6 @@ public class RunsMapper {
     public RunsDto RunsEntityToRunsDto(Runs runs) {
         RunsDto runsDto = RunsDto.builder()
                 .runsId(runs.getRunsId())
-                .durationOfRun(runs.getDurationOfRun())
                 .pause(runs.getPause())
                 .numberOfRuns(runs.getNumberOfRuns())
                 .repetition(runs.getRepetition())
